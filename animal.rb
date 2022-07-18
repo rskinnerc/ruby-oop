@@ -5,4 +5,16 @@ class Animal
     @number_of_legs = number_of_legs
     @type = type
   end
+
+  attr_accessor :name
+  attr_reader :id, :type, :number_of_legs
+
+  def speak
+    if @type == "dog"
+      "Woof, woof"
+    elsif @type == "spider"
+      "..."
+    end
+  end
+
 end
