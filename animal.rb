@@ -2,8 +2,8 @@ require './remover'
 require './foods'
 
 class Animal
-  attr_accessor :owner
-  
+  attr_reader :owner
+
   def initialize(type, number_of_legs, name = 'Unknown')
     @id = Random.rand(1..1000)
     @name = name
@@ -26,5 +26,10 @@ class Animal
 
   def likes_food?(food)
     @liked_food.liked?(food)
+  end
+
+  def owner=(owner)
+    @owner = owner
+    owner.animals.push(self) unless owner.animals.include?(self)
   end
 end
