@@ -2,19 +2,18 @@ require './remover'
 require './foods'
 
 class Animal
-  attr_reader :owner, :visits
+  attr_reader :owner, :visits, :id, :type, :number_of_legs
 
   def initialize(type, number_of_legs, name = 'Unknown')
     @id = Random.rand(1..1000)
     @name = name
     @number_of_legs = number_of_legs
     @type = type
-    @liked_food = NoFood.new()
+    @liked_food = NoFood.new
     @visits = []
   end
 
   attr_accessor :name
-  attr_reader :id, :type, :number_of_legs
 
   def remove_leg
     remover = Remover.new
